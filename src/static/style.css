@@ -1,0 +1,22 @@
+body {background-color: #f0f0f0
+}
+#content {
+    background-color: #F0FFFF;
+    padding: 20px 15px;
+    margin: 14px 10px;
+    border: outset 2px #cfddee;
+    width: 85%;
+    max-width: 850px;
+    padding-bottom: 25px;
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    /*position: fixed;*/
+    margin: 0 auto;
+}
+l {color: #177199}
+textarea {width: 100%; height: calc(100% - 50px); }
+
+button {
+    float: right;
+    height: 25px;
+}
