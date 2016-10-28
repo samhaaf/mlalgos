@@ -1,0 +1,35 @@
+Welcome
+
+This site will be used for organizing machine learning algorithms. Right now it will parse simple expressions such as headers, links, HTML and double-line breaks. There will be a couple updates soon, including real LaTeX formula parsing, but this is enough to get the ball rolling.
+
+Classification
+
+* Logistic regression
+* K-nearest neighbors
+
+* Linear discriminant analysis
+
+* Neural networks
+
+Supervised learning
+
+* Regression
+* * "/linear_regression">Linear regression
+
+* * "/logistic_regression">Logistic regression
+
+* * Partial least squares
+
+* * Principal components regression
+
+* * LASSO
+
+* * Ridge regression
+
+* * "/neural_networks">Neural networks
+
+* * "/k_nearest_neighbors">K-nearest neighbors
+
+Clustering
+
+* Hierarchical clustering

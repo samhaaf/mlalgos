@@ -59,20 +59,13 @@ def post_page():
 
 def parse_tex(tex):
     tex = '<p>' + tex + '</p>'
-    links = re.finditer('(\[[\s\S]+\]\([\s\S]+\))', tex)
-
     tex = re.sub('(\n\n)','</p><p>',tex)
 
-    for link in links:
-        span = link.span()
-        text = re.search('(?<=\[)([\s\S]+)(?=\])', link.group(0)).group(0)
-        href = re.search('(?<=\()([\s\S]+)(?=\))', link.group(0)).group(0)
-        tex = tex[:span[0]] + '<a href="%s">%s</a>' % (href, text) + tex[span[1]:]
-
     while True:
-        h = re.search('(?<==)[^=]+?(?==)', tex)
+        h = re.search('(?<=(=))[^=^"]+?(?=(=))', tex)
         if not h:
             break
+        h.group(0)
 
         span = h.span()
         tmp = re.match('(<h[0-9]>[\s\S]+?</h[0-9]>)', tex[span[0]:span[1]])
@@ -81,5 +74,14 @@ def parse_tex(tex):
             tex = tex[:(span[0]-1)] + '<h%i>%s</h%i>' % (i+1, h.group(0)[4:-5], i+1) + tex[(span[1]+1):]
         else:
             tex = tex[:(span[0]-1)] + '<h1>%s</h1>' % h.group(0) + tex[(span[1]+1):]
+
+    while True:
+        link = re.search('(\[[\s\S]+?\]\([\s\S]+?\))', tex)
+        if not link:
+            break
+        span = link.span()
+        text = re.search('(?<=\[)([\s\S]+?)(?=\])', link.group(0)).group(0)
+        href = re.search('(?<=\()([\s\S]+?)(?=\))', link.group(0)).group(0)
+        tex = tex[:span[0]] + '<a href="%s">%s</a>' % (href, text) + tex[span[1]:]
 
     return tex
