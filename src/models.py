@@ -8,3 +8,7 @@ class Page(db.Model):
 
     def __repr__(self):
         return '<Page %r>' % self.url
+
+
+# class LaTeX(db.Model):
+    # formula = db.Column(db.)
